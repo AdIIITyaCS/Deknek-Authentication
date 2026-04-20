@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}
+  Dashboard | Django Auth Site
+{% endblock %}
+
+{% block content %}
+  <section class="card">
+    <h2>Welcome, {{ user.username }}</h2>
+    <p>Your login is handled by Django auth, while your details are stored in the separate profile table.</p>
+    <div class="meta-grid">
+      <div>
+        <h3>Full Name</h3>
+        <p>{{ profile.full_name|default:'Not provided' }}</p>
+      </div>
+      <div>
+        <h3>Email</h3>
+        <p>{{ profile.email|default:'Not provided' }}</p>
+      </div>
+      <div>
+        <h3>Phone Number</h3>
+        <p>{{ profile.phone_number|default:'Not provided' }}</p>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <p>{{ profile.address|default:'Not provided' }}</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
